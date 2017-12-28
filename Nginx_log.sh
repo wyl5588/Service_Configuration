@@ -1,5 +1,5 @@
 #!/bin/bash
-#设置日志文件存放目录
+#设置日志文件存放目录.
 LOG_HOME="/usr/local/nginx/logs"
 #备分文件名称
 LOG_PATH_BAK="$(date -d yesterday +%Y%m%d%H%M)".access.log
