@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://org.opencloudb/">
+	<schema name="WordBuilder" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn1">
+	</schema>
+	<dataNode name="dn1" dataHost="localhost1" database="WordBuilder" />
+	<dataHost name="localhost1" maxCon="20000" minCon="5000" balance="1" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM1" url="10.0.32.20:3306" user="root" password="mintmath">
+                <!--<readHost  host="hostS1" url="10.0.32.49:3306" user="root" password="mintmath"/>-->
+                <!--<readHost  host="hostS2" url="10.0.32.49:3307" user="root" password="mintmath"/>-->
+                <!--<readHost  host="hostS3" url="10.0.32.49:3308" user="root" password="mintmath"/>-->
+                <readHost  host="hostS4" url="10.0.32.15:3306" user="root" password="mintmath"/>
+                <readHost  host="hostS5" url="10.0.32.15:3307" user="root" password="mintmath"/>
+                <readHost  host="hostS6" url="10.0.32.15:3308" user="root" password="mintmath"/>
+                <readHost  host="hostS7" url="10.0.32.11:3306" user="root" password="mintmath"/>
+                <readHost  host="hostS8" url="10.0.32.11:3307" user="root" password="mintmath"/>
+                <readHost  host="hostS9" url="10.0.32.11:3308" user="root" password="mintmath"/>
+                <readHost  host="hostS10" url="10.0.32.12:3306" user="root" password="mintmath"/>
+                <readHost  host="hostS11" url="10.0.32.12:3307" user="root" password="mintmath"/>
+                <readHost  host="hostS12" url="10.0.32.12:3308" user="root" password="mintmath"/>
+                </writeHost>
+		<!--<writeHost host="hostS1" url="10.0.32.18:3306" user="root" password="mintmath" />-->
+
+	</dataHost>
+</mycat:schema>
