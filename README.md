@@ -7,3 +7,4 @@
 - 简单 高效 快捷！
 
 ![image](https://github.com/wyl5588/Other_collections/blob/master/images/redis1.gif)
+![image](https://github.com/wyl5588/Other_collections/blob/master/images/python.gif)
