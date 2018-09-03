@@ -1,0 +1,15 @@
+curl -o /etc/yum.repos.d/docker-ce.repo https://download.docker.com/linux/centos/docker-ce.repo &&
+yum repolist all
+yum install docker-ce -y && 
+systemctl enable docker && systemctl start docker
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+docker --version
+systemctl daemon-reload && systemctl restart docker
+curl -o /Docker_Images.tgz http://124.207.22.14/Backup_DB_WEB/WYL-TOOLS/Docker-Images/Docker_Images.tgz && 
+curl -o /Docker-Ser.tgz http://124.207.22.14/Backup_DB_WEB/WYL-TOOLS/Docker-Images/Docker-Ser.tgz &&
+tar -xvzf Docker_Images.tgz -C / && tar -xvzf Docker-Ser.tgz -C / &&
+docker load </Docker_Images/5588-mongo3.2.tgz && docker load </Docker_Images/5588-nginx.tgz &&  docker load </Docker_Images/5588-redis.tgz &&  docker load </Docker_Images/Zujuan-QT-images.tgz &&  ln -s /Docker-Ser/*.sh /usr/bin/ && ln -s /Docker-Ser/*.sh /usr/bin/ &&
+IPaddr=$(ifconfig|grep -C 1 "em1"|awk -F '[ :]+' 'NR==2{print $4}')
+sed -i 's/192.168.0.145/${IPaddr}/g'
+/Docker-Ser/Nginx/nginx/conf.d/MinteTongbuxue.conf &&
+/bin/bash /Docker-Ser/start.sh
